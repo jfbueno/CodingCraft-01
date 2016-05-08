@@ -8,6 +8,11 @@
         $urlRouterProvider.otherwise("/home");
 
         $stateProvider
+            .state('not-authorized', {
+                url: '/401',
+                templateUrl: 'views/shared/401.html',
+                controller: 'UnauthorizedPageController as unauthorizedViewModel'
+            })
             .state('home', {
                 url: '/home',
                 templateUrl: 'views/home.html',

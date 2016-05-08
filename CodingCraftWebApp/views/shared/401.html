@@ -1,0 +1,15 @@
+<div class="content-wrapper jumbotron">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>
+                {{unauthorizedViewModel.message}}
+                <div ng-hide="unauthorizedViewModel.isAuth">
+                    Try <a ui-sref="login">login</a>
+                </div>
+                <div ng-show="unauthorizedViewModel.isAuth">
+                    Perhaps, you're trying to <a ui-sref="sales.new">register a new sale</a>
+                </div>
+            </h3>
+        </div>
+    </div>
+</div>

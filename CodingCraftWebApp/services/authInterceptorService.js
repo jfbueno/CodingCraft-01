@@ -1,27 +1,33 @@
-'use strict';
-angular.module('CodingCraft')
-        .factory('authInterceptorService', ['$q', '$location', 'localStorageService', function ($q, $state, localStorageService) {
+/*Using injector, because the use of $state gives a CircularDependencyError
+Hack source -> http://stackoverflow.com/a/25496219*/
+(function(){
+    'use strict';
+    angular.module('CodingCraft')
+            .factory('authInterceptorService', authInterceptorService);
 
-    var authInterceptorServiceFactory = {};
+    function authInterceptorService($q, $injector, localStorageService) {
 
-    var _request = function (config) {
-        config.headers = config.headers || {};
-        var authData = localStorageService.get('authorizationData');
-        if (authData) {
-            config.headers.Authorization = 'Bearer ' + authData.token;
+        var authInterceptorServiceFactory = {};
+        var _request = function (config) {
+            config.headers = config.headers || {};
+            var authData = localStorageService.get('authorizationData');
+            if (authData) {
+                config.headers.Authorization = 'Bearer ' + authData.token;
+            }
+            return config;
         }
-        return config;
-    }
 
-    var _responseError = function (rejection) {
-        if (rejection.status === 401) {
-            $state.go('/login');
+        var _responseError = function (rejection) {
+            if (rejection.status === 401) {
+                var stateService = $injector.get('$state');
+                stateService.go('not-authorized');
+            }
+            return $q.reject(rejection);
         }
-        return $q.reject(rejection);
-    }
 
-    authInterceptorServiceFactory.request = _request;
-    authInterceptorServiceFactory.responseError = _responseError;
+        authInterceptorServiceFactory.request = _request;
+        authInterceptorServiceFactory.responseError = _responseError;
 
-    return authInterceptorServiceFactory;
-}]);
+        return authInterceptorServiceFactory;
+    };
+})();
