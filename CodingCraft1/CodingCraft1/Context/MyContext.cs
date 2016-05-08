@@ -6,7 +6,7 @@ namespace CodingCraft1.Context
 {
     public class MyContext : IdentityDbContext<IdentityUser>
     {
-        public MyContext() : base("CodingCraftDb2")
+        public MyContext() : base("CodingCraftDb")
         {
         }
 
