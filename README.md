@@ -1,6 +1,6 @@
-# CodingCraft-01
+# CodingCraft-01 - The Candy and Snacks Store System
 
-This is an application made based on Coding Craft 1 problem.
+This is an application made to solve the problem of **The Candy and Snacks Store System** on Coding Craft 1.
 
 ### Tecnologies
 1. **Frontend project** (CodingCraftWebApp)
@@ -14,7 +14,7 @@ This is an application made based on Coding Craft 1 problem.
 
 
 ### Running
-1. Open the **.sln** file with Visual Studio (*CodingCraft1/CodingCraft1/CodingCraft1.sln*)
+1. Open the **.sln** file with Visual Studio (*CodingCraft-01/CodingCraft1/CodingCraft1.sln*)
 2. Rebuild project to download all nuget packages (make sure [nuget package restore](https://docs.nuget.org/consume/package-restore) is enabled)
 3. Open package manager and run `PM> update-database`
 4. This will create a database named **`CodingCraftDb`** and insert a admin user named **`Jefh`** - his password is **`123456`**
@@ -32,3 +32,4 @@ This is an application made based on Coding Craft 1 problem.
 - [ ] Client side validations (money, dates, etc.)
 - [ ] ~~Improve user interface~~
 - [ ] Allow admin user to add new admins
+- [ ] Send email alerts to admins for proximity of puchases payment
