@@ -34,4 +34,4 @@ This is an application made to solve the problem of **The Candy and Snacks Store
 - [ ] Allow admin user to add new admins
 - [ ] Send email alerts to admins for proximity of puchases payment
 - [ ] View 'my purchases' - Show sales of logged user
-- [ ] Show unauthorized message to non authorized users
+- [X] Show unauthorized message to non authorized users
