@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingCraft1", "CodingCraft1\CodingCraft1.csproj", "{C67CF4CE-A911-4AFE-B40D-104F9CBBBAA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingCraftWebApp", "CodingCraftWebApp\CodingCraftWebApp.csproj", "{11CADBF3-749A-40C8-8433-39EB29C78019}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{C67CF4CE-A911-4AFE-B40D-104F9CBBBAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C67CF4CE-A911-4AFE-B40D-104F9CBBBAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C67CF4CE-A911-4AFE-B40D-104F9CBBBAA7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11CADBF3-749A-40C8-8433-39EB29C78019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11CADBF3-749A-40C8-8433-39EB29C78019}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11CADBF3-749A-40C8-8433-39EB29C78019}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11CADBF3-749A-40C8-8433-39EB29C78019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
