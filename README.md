@@ -1,4 +1,5 @@
-# CodingCraft 01 - The Candy and Snacks Store System
+# CodingCraft 01
+### The Candy and Snacks Store System
 
 This is an application made to solve the problem of **The Candy and Snacks Store System** on Coding Craft 1.
 
