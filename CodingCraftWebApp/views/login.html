@@ -1,0 +1,15 @@
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form class="form-login" role="form">
+                <h2 class="form-login-heading">Login</h2>
+                <input type="text" class="form-control" placeholder="Username" data-ng-model="loginVm.data.userName" required autofocus>
+                <input type="password" class="form-control" placeholder="Password" data-ng-model="loginVm.data.password" required>
+                <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="loginVm.login()">Login</button>
+                 <div ng-hide="loginVm.message == ''" class="alert alert-danger">
+                    {{loginVm.message}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

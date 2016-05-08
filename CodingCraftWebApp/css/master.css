@@ -1,0 +1,31 @@
+.page-header{
+    height: 150px;
+}
+
+.form-control{
+    margin-bottom: 5px;
+}
+
+.btn{
+    margin-bottom: 5px;
+}
+
+.content-wrapper{
+    margin-top: 75px;
+}
+
+growl-notifications {
+  position: fixed;
+  top: 45px;
+  right: 10px;
+  z-index: 1000;
+}
+growl-notifications growl-notification {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px 30px;
+  width: 200px;
+  display: block;
+  border-radius: 5px;
+  margin-top: 15px;
+}

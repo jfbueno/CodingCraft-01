@@ -1,0 +1,38 @@
+<div class="content-wrapper jumbotron">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table table-responsive table-striped table-bordered">
+                <!--<div class="checkbox pull-right">
+                    <label>
+                        <input type="checkbox" ng-click="salesViewModel.getThisMonthSales()">See only sales of this month
+                    </label>
+                </div>-->
+                <tfoot>
+                    <tr>
+                        <button class="btn btn-primary btn-sm" ng-click="salesViewModel.sendPaymentReminders()">Send payment reminders</button>
+                    </tr>
+                </tfoot>
+                <thead>
+                    <tr>
+                        <th>Consumer</th>
+                        <th width="20%">Date</th>
+                        <th width="15%">Total cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="sale in salesViewModel.sales">
+                        <td>
+                            {{sale.consumer.userName}}
+                        </td>
+                        <td width="20%">
+                            {{sale.date | date:'dd/MM/yyyy'}}
+                        </td>
+                        <td width="15%">
+                            {{sale.totalCost | currency}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

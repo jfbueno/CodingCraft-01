@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html ng-app="CodingCraft">
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/master.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+
+    <!-- notification -->
+    <script type="text/javascript" src="angular-growl-notifications.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.7/angular-local-storage.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="IndexController as indexVm">
+        <div class="container">
+            <div class="navbar-header">
+                  <button class="btn btn-success navbar-toggle" ng-click="navbarExpanded = !navbarExpanded">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                <a class="navbar-brand" ui-sref="home">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav" ng-hide="!indexVm.authentication.isAuth">
+                    <li>
+                        <a ui-sref="products.list">Products</a>
+                    </li>
+                    <li>
+                        <a ui-sref="suppliers.list">Suppliers</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Purchases <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="purchases.list">List all purchases</a></li>
+                            <li><a ui-sref="purchases.new">Register new purchase</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sales <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="sales.list">List all sales</a></li>
+                            <li><a ui-sref="sales.new">Make a new sale</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a ui-sref="profit-ballast">Balance checker</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-hide="!indexVm.authentication.isAuth"><a ui-sref="home">Welcome {{indexVm.authentication.userName}}</a></li>
+                    <li ng-hide="!indexVm.authentication.isAuth"><a href="" ng-click="indexVm.logOut()">Logout</a></li>
+                    <li ng-hide="indexVm.authentication.isAuth"> <a ui-sref="login">Login</a></li>
+                    <li ng-hide="indexVm.authentication.isAuth"> <a ui-sref="signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="jumbotron">
+        <div class="container">
+            <div class="page-header text-center">
+                <h2>CodingCraft 1</h2>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="container">
+        <div ui-view></div>
+        <growl-notifications></growl-notifications>
+    </div>
+
+    <script src="angularlocale-pt-br.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!--AngularJS Scripts-->
+    <script src="app.js"></script>
+    <script src="config/routeConfig.js"></script>
+
+    <!--Controllers-->
+    <script src="controllers/indexController.js"></script>
+    <script src="controllers/productsController.js"></script>
+    <script src="controllers/EditProductController.js"></script>
+    <script src="controllers/suppliersController.js"></script>
+    <script src="controllers/supplierDetailsController.js"></script>
+    <script src="controllers/ListSalesController.js"></script>
+    <script src="controllers/saleController.js"></script>
+    <script src="controllers/signupController.js"></script>
+    <script src="controllers/loginController.js"></script>
+    <script src="controllers/homeController.js"></script>
+    <script src="controllers/listPurchasesController.js"></script>
+    <script src="controllers/newPurchaseController.js"></script>
+    <script src="controllers/profitBallastController.js"></script>
+
+    <!--Services-->
+    <script src="services/productsService.js"></script>
+    <script src="services/suppliersService.js"></script>
+    <script src="services/salesService.js"></script>
+    <script src="services/authService.js"></script>
+    <script src="services/authInterceptorService.js"></script>
+    <script src="services/purchaseService.js"></script>
+
+</body>
+</html>

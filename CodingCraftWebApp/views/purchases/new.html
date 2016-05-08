@@ -1,0 +1,113 @@
+<div class="content-wrapper jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <label for="supplierSelect">Supplier</label>
+                <select class="form-control" name="supplierSelect"
+                        ng-model="newPurchaseViewModel.purchase.supplier"
+                        ng-options="supplier as supplier.name for supplier in newPurchaseViewModel.suppliersList"
+                        ng-change="newPurchaseViewModel.getProductsPerSupplier()">
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Purchase date</label>
+                <input type="date" class="form-control" ng-model="newPurchaseViewModel.purchase.purchaseDate">
+            </div>
+            <div class="col-md-3">
+                <label for="inputDate">Payment date</label>
+                <input type="date" class="form-control" name="inputDate" ng-model="newPurchaseViewModel.purchase.payday">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p>Purchase items</p>
+            <table class="table table-responsive table-striped table-bordered">
+                <tfoot>
+                    <tr>
+                        <strong>Total:</strong> {{newPurchaseViewModel.totalCost | currency}}
+                    </tr>
+                </tfoot>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Unit price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in newPurchaseViewModel.purchase.items">
+                        <td>
+                            {{item.productDescription}}
+                        </td>
+                        <td>
+                            {{item.unitPrice | currency}}
+                        </td>
+                        <td>
+                            {{item.quantity}}
+                        </td>
+                        <td>
+                            {{item.totalCost | currency}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <button class="btn btn-primary" ng-click="newPurchaseViewModel.finishPurchase()">Finish purchase</button>
+        </div>
+    </div>
+    <div ng-hide="newPurchaseViewModel.message == ''" class="alert alert-dismiss" ng-class="newPurchaseViewModel.error ? 'alert-danger' : 'alert-success'">
+        <button type="button" class="close" ng-click="newPurchaseViewModel.message = ''">×</button>
+        {{newPurchaseViewModel.message}}
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table table-responsive table-striped table-bordered">
+                <tfoot>
+                    <tr>
+                        Add products to purchase
+                    </tr>
+                </tfoot>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th width="15%">
+                            Sale price
+                        </th>
+                        <th width="15%">
+                            Price
+                        </th>
+                        <th width="15%">
+                            Quantity
+                        </th>
+                        <th width="15%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in newPurchaseViewModel.productsList">
+                        <td>
+                            {{product.description}}
+                        </td>
+                        <td width="15%">
+                            {{product.salePrice | currency}}
+                        </td>
+                        <td width="15%">
+                            {{product.price | currency}}
+                        </td>
+                        <td width="15%">
+                            <input type="number" class="form-control" ng-model="product.purchaseQuantity">
+                        </td>
+                        <td width="15%">
+                            <button class="btn btn-default" ng-click="newPurchaseViewModel.addItemToPurchase(product)">Add product</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

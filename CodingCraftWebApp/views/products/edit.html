@@ -1,0 +1,22 @@
+<div class="content-wrapper jumbotron">
+    <div class="row">
+        <p>
+            <h4>Update product info</h4>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="productDescrInput" ng-model="productViewModel.product.description">
+                    <input type="number" class="form-control" ng-model="productViewModel.product.salePrice">
+                        <button class="btn btn-primary" ng-click="productViewModel.saveChanges()">Save changes</button>
+                </div>
+            </form>
+            <div ng-hide="productViewModel.message == ''" class="alert alert-dismissable" ng-class="productViewModel.error ? 'alert-danger' : 'alert-success'">
+                <button type="button" class="close" ng-click="productViewModel.message = ''">×</button>
+                {{productViewModel.message}}
+            </div>
+        </div>
+    </div>
+</div>

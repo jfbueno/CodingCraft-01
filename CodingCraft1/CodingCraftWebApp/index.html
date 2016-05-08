@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html ng-app="CodingCraft">
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+<div ui-view></div>
+    aaa
+    <a ui-sref="state1">State 1</a>
+    <a ui-sref="state2">State 2</a>
+
+<!--AngularJS Scripts-->
+<script src="app.js"></script>
+<script src="config/routeConfig.js"></script>
+
+<!--Controllers-->
+<script src="controllers/consumersController.js"></script>
+<script src="controllers/newConsumerController.js"></script>
+
+<!--Services-->
+<script src="services/consumersService.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<div class="content-wrapper jumbotron">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table table-responsive table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Supplier
+                        </th>
+                        <th>
+                            Purchase date
+                        </th>
+                        <th>
+                            Payment date
+                        </th>
+                        <th>
+                            Total cost
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="purchase in purchasesViewModel.purchases">
+                        <td>
+                            {{purchase.supplier.name}}
+                        </td>
+                        <td width="20%" class="text-center">
+                            {{purchase.purchaseDate | date:'dd/MM/yyyy'}}
+                        </td>
+                        <td width="20%" class="text-center">
+                            {{purchase.payday | date:'dd/MM/yyyy'}}
+                        </td>
+                        <td width="20%" class="text-center">
+                            {{purchase.totalCost | currency}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

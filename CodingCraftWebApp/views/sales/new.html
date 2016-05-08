@@ -1,0 +1,73 @@
+<div class="content-wrapper jumbotron">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p>
+                Sale details
+            </p>
+            <table class="table table-bordered">
+                <tfoot>
+                    <tr>
+                        <strong>Total: {{saleViewModel.totalCost | currency}}</strong>
+                    </tr>
+                </tfoot>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th width="10%">Quantity</th>
+                        <th width="15%">Total cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="saleItem in saleViewModel.sale.items">
+                        <td>
+                            {{saleItem.description}}
+                        </td>
+                        <td width="10%" class="text-center">
+                            {{saleItem.quantity}}
+                        </td>
+                        <td width="15%" class="text-right">
+                            {{saleItem.totalCost | currency}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div ng-hide="saleViewModel.message == ''" class="alert alert-dismiss" ng-class="saleViewModel.error ? 'alert-danger' : 'alert-success'">
+                <button type="button" class="close" ng-click="saleViewModel.message = ''">×</button>
+                {{saleViewModel.message}}
+            </div>
+            <button class="btn btn-primary" ng-click="saleViewModel.finishSale()">Finish</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p>
+                Avaliable products
+            </p>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th width="10%">Price</th>
+                        <th width="15%">Quantity</th>
+                        <th width="10%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in saleViewModel.productsList">
+                        <td>
+                            {{product.description}}
+                        </td>
+                        <td width="10%" class="text-center">
+                            {{product.salePrice | currency}}
+                        </td>
+                        <td width="15%">
+                            <input type="number" min="1" max="{{product.stockQuantity}}" class="form-control" ng-model="product.saleQuantity">
+                        </td>
+                        <td width="10%"><button class="btn btn-primary" ng-click="saleViewModel.addProduct(product)">Add to sale</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

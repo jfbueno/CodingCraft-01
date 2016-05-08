@@ -1,0 +1,33 @@
+<div class="content-wrapper jumbotron">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="consumersViewModel.newConsumer.name" placeholder="Consumer name" />
+                    <input type="text" class="form-control" ng-model="consumersViewModel.newConsumer.email" placeholder="Consumer e-mail" />
+                    <button class="btn btn-primary" ng-click="consumersViewModel.insertNewConsumer()">Insert new consumer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="consumer in consumersViewModel.allConsumers">
+                        <td width="5%">{{consumer.id}}</td>
+                        <td width="60%">{{consumer.name}}</td>
+                        <td>{{consumer.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
