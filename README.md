@@ -1,4 +1,4 @@
-# CodingCraft-01 - The Candy and Snacks Store System
+# CodingCraft 01 - The Candy and Snacks Store System
 
 This is an application made to solve the problem of **The Candy and Snacks Store System** on Coding Craft 1.
 
@@ -33,3 +33,5 @@ This is an application made to solve the problem of **The Candy and Snacks Store
 - [ ] ~~Improve user interface~~
 - [ ] Allow admin user to add new admins
 - [ ] Send email alerts to admins for proximity of puchases payment
+- [ ] View 'my purchases' - Show sales of logged user
+- [ ] Show unauthorized message to non authorized users
