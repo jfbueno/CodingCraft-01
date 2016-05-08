@@ -15,8 +15,5 @@ namespace CodingCraft1.Models
         public virtual List<SaleItems> Items { get; set; }
         [ForeignKey("ConsumerId")]
         public virtual IdentityUser Consumer { get; set; }
-
-        [NotMapped]
-        public string ConsumerUsername { get; set; }
     }
 }

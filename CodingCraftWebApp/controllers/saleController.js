@@ -11,7 +11,6 @@
         saleViewModel.productsList = [];
 
         saleViewModel.sale = {};
-        saleViewModel.sale.consumerUsername = "";
         saleViewModel.sale.items = [];
         saleViewModel.totalCost = 0;
 
@@ -47,9 +46,6 @@
         }
 
         function finishSale(){
-            var authData = localStorageService.get('authorizationData');
-            saleViewModel.sale.consumerUsername = authData.userName;
-
             salesService.newSale(saleViewModel.sale).then(
                 function(response){
                     console.log(response);

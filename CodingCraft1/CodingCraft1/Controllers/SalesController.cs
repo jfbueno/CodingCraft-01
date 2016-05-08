@@ -23,6 +23,7 @@ namespace CodingCraft1.Controllers
     public class SalesController : ApiController
     {
         private readonly MyContext _db = new MyContext();
+        private readonly UserManager<IdentityUser> _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new MyContext()));
 
         // GET: api/Sales
         [Authorize(Roles = "admin")]
@@ -119,8 +120,8 @@ namespace CodingCraft1.Controllers
 
             sale.Date = System.DateTime.Now;
             sale.TotalCost = sale.Items.Sum(x => x.TotalCost);
-
-            var user = await _db.Users.SingleOrDefaultAsync(u => u.UserName == sale.ConsumerUsername);
+            
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
             if (user == null)
             {
@@ -172,8 +173,7 @@ namespace CodingCraft1.Controllers
             
             foreach (var reminder in reminders)
             {
-                var userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(new MyContext()));
-                var user = await userManager.FindByIdAsync(reminder.UserId);
+                var user = await _userManager.FindByIdAsync(reminder.UserId);
 
                 var salesCount = reminder.Sales.Count;
 
