@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
@@ -27,9 +28,9 @@ namespace CodingCraft1.Controllers
 
         // GET: api/Sales
         [Authorize(Roles = "admin")]
-        public IQueryable<Sale> GetSales()
+        public async Task<List<Sale>> GetSales()
         {
-            return _db.Sales.OrderByDescending(s => s.Date);
+            return await _db.Sales.OrderByDescending(s => s.Date).ToListAsync();
         }
 
         // GET: api/Sales/5
