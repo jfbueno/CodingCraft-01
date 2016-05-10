@@ -36,4 +36,4 @@ This is an application made to solve the problem of **The Candy and Snacks Store
 - [ ] Send email alerts to admins for proximity of puchases payment
 - [ ] View 'my purchases' - Show sales of logged user
 - [X] Show unauthorized message to non authorized users
-- [ ] Notify user when payment reminders are sent
+- [ ] Notify users when payment reminders is sent
